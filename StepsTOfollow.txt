@@ -1,0 +1,47 @@
+Steps
+1- Make node js app with api [you can use mysql/ mongodb +mongoose ,its your choice] but use express js framework because it has a biggest role in setting node js with angular. currently I am using angular2 with node js , you can follow same steps for other version of angular.
+
+currently i have structure like this:
+    1-Models : it contains files of collection schema [mongoose] 
+    2-node_modules : automatically created dependencies lib when you use npm install acc. to package.json
+    3-public[not mandatory] : i am using it only for showing favicon icon
+    4- routes : it contains routes api 
+    5-views : contain only one file index.html [place angular index.html code inside views/index.html ]
+    6- app.js : main server file
+
+    	place below two line in app.js
+    	app.engine('html',require('ejs').renderFile);  // show that it can run index.html
+		app.use(express.static(path.join(__dirname, 'client'))); //angular app
+
+
+Now lets start with angular2
+create a folder name 'client'
+Now place below 4 files
+1-package.json
+2-typings.json
+3-systemjs.config.js
+4-tsconfig.json
+you can get abouve files from angular.io website
+
+
+after then go to terminal
+go to client path and write command npm install
+after then it will create node_modules there
+after then create app folder in same client directory
+and below 3 files there:
+1- app.module.ts
+2-app.component.ts
+3-main.ts
+
+and then go to teminal
+go to client path and write command: npm run tsc-w
+it will create js file of all .ts file
+
+Now go to views/ :
+index.html
+ <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+ you can place cdn link of bootstrap.css here 
+
+ All is done now:)
+ lets run server
+ node app.js
